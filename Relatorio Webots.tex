@@ -1,0 +1,87 @@
+\documentclass[11pt, a4paper, twocolumn]{article}
+
+
+%Pacotes:
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % Inserir Imagem
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{authblk}
+\usepackage[top=2cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+\usepackage{listings}
+
+\begin{document}
+
+\title{Centro Universitário SENAI CIMATEC\\
+    \vspace{1cm}
+    \textbf{Relatório de Simulação \\ Webots}
+}
+
+\author[1]{Marcelo Borges}
+\author[2]{Frederico Barreto}
+\author[3]{Júlia Nascimento}
+\affil[1]{Engenharia Elétrica - marcelo.borges@aln.senaicimatec.edu.br}
+\affil[2]{Engenharia Elétrica - frederico.castellucci@aln.senaicimatec.edu.br}
+\affil[3]{Engenharia Elétrica - julia.ribeiro@aln.senaicimatec.edu.br}
+
+\date{Salvador, Bahia\\\today}
+\maketitle    
+\begin{abstract}
+    \textbf{A simulação foi realizada através da utilização do softwere Webots.}
+\end{abstract}
+
+\section{Introdução}
+    Quando se pensa em sistemas embarcados é preciso entender que o mesmo utiliza de sistemas microprocessados no qual o computador é completamente 
+    encapsulado ou dedicado ao dispositivo que ele controla. Os sistemas embarcados são utilizados para executar tarefas específicas em um determinado
+    aparelho. Eles estão presentes em diversos equipamentos do dia a dia, como por exemplo em semáforos, aparelhos de ar condicionado (controle da temperatura),
+    impressoras, tablets, smartphones e MP3 players.
+    \\
+    Para essa atividade de simulação, o softwere utilizado foi o Webots, que é um simulador de robô 3D gratuito e opensource usado na indústria, educação e 
+    pesquisa. Esse programa inclui uma grande coleção de modelos livremente modificáveis de robôs e objetos. Além disso, também é possível construir novos modelos do zero
+    ou importá-los de um software CAD 3D. Ao projetar um modelo de robô, o usuário especifica  as propriedades gráficas e físicas dos objetos. As propriedades gráficas incluem 
+    a forma, dimensões, posição e orientação, cores e textura do objeto. As propriedades físicas incluem a massa, o fator de fricção, bem como as constantes de mola e amortecimento. 
+    \\
+    Por fim, o webots inclui um conjunto de sensores e atuadores frequentemente utilizados em experimentos robóticos como, por exemplo, lidars, radares, sensores de proximidade, 
+    sensores de luz, sensores de toque, GPS, acelerômetros, câmeras, emissores e receptores, servo motores (rotacionais e lineares), sensor de posição e força, LEDs, pinças, giroscópio, 
+    bússola, etc.
+
+\section{Desenvolvimento}
+    A simulação foi baseada em buscar solucuonar o desafio proposta, que foi: manter um robô andando na linha de uma pista e desviar de alguns objetos colocados ao longo dela para 
+    que o robô utilizasse dos seus sensores para realizar o desvio correto e após issi voltar para a linha. Com isso, alguns materiais disponibilizados pelo softwere Webots foram 
+    necessário para a realização da atividade, foram eles:
+    \begin{itemize}
+        \item Robô: e-puck;
+        \item Pista;
+        \item Objetos;
+        \item Arena: madeira 1x1m
+    \end{itemize}
+    Utiliazndo tais componentes, foi preciso criar no simulador um mundo, com dimensões 1x1m, que serve como base geral para que fossem adicionados os outros elementos que fariam parte 
+    e viabilizaria a simulação de fato. O primeiro elemento a ser inserido na arena é uma pista fechada contendo aproximadamente 8 partes curvadas, vide figura 01, para que o robô consiga 
+    explorar seus sensores para permanecer na linha corretamente.
+    \begin{figure}[h]
+        \caption{Pista}
+        \centering
+        \includegraphics[width=7cm]{imagens/pista.png}
+    \end{figure}
+    \\
+    Os objetos foram os próximos elementos a serem inseridos na pista, uma vez que esses seriam os obstáculos para que o robô conseguisse desviar. Os objetos utilizados foram uma esfera (bola), 
+    uma caixa de madeira e uma lata de refrigerante. Já o último elemento a ser inserido no mundo para completar a simulação foi o robô e-puck, vide figura 02, que iria fazer o papel principal na 
+    atividade. Ou seja, a partir dos elementos secundários o robô conseguiria funcionar de maneira correta andando na pista normalmente e desviando dos objetos inseridos. O e-puck é autônomo e 
+    possui 11 sensores IR, 2 motores, câmera colorida 640x480, 8 LEDs em anel, 1 LED de corpo, 1 LED frontal, 3 microfones e 1 autofalante.
+    \begin{figure}[h]
+        \caption{E-puck}
+        \centering
+        \includegraphics[width=7cm]{imagens/epuck.png}
+    \end{figure}
+    \\
+    Após a contrução do ambiente da simulação com todos os elementos necessários, foi o momento da codificação e correções do \textit{controler} que iria dar a autonomia e comandos para o E-puck funcionar 
+    conforme o desafio. A simulação foi dividida em 3 etapas principais: Simulação do ambiente com o robô e os objetos; Missão 01, percorrer toda a pista; e Missão 02, percorrer toda a pista e desviar dos 
+    obstáculos.
+    \\
+    Seguindo as etapas citadas, a primeira função do \textit{controler} que foi modificada inicialmente foi a \textit{LFM - Line Following Module}, mais especificamente a velocidade ("DeltaS") do robô na 
+    pista.
+
+    \section{Conclusão}
+
+\end{document}
